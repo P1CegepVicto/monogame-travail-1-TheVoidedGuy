@@ -31,7 +31,11 @@ namespace Projet_Monogame
         GameObject smallroundprojectileD;
         #endregion
         int time;
+        byte enemytime = 0;
         int roundtime = -1;
+        int direction;
+        float vI;
+        Random random = new Random();
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -52,7 +56,7 @@ namespace Projet_Monogame
             this.graphics.ToggleFullScreen();
             //fenetre = new Rectangle(0, 0, graphics.GraphicsDevice.DisplayMode.Width, graphics.GraphicsDevice.DisplayMode.Height);
             base.Initialize();
-            
+
         }
 
         /// <summary>
@@ -62,8 +66,6 @@ namespace Projet_Monogame
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            Random random = new Random();
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
             hero = new GameObject();
             hero.estVivant = true;
@@ -109,7 +111,7 @@ namespace Projet_Monogame
             #region Round Projectile
             roundprojectile = new GameObject();
             roundprojectile.sprite = Content.Load<Texture2D>("Round_Projectile.png");
-            
+
             #region Small Round Projectile UP
             smallroundprojectileW = new GameObject();
             smallroundprojectileW.vitesse.X = 0;
@@ -188,22 +190,34 @@ namespace Projet_Monogame
         public void UpdateHero()
         {
             if (Keyboard.GetState().IsKeyDown(Keys.A) && hero.position.X - 5 > 0)
-                hero.position.X -= 5;
+                hero.position.X -= 3;
             if (Keyboard.GetState().IsKeyDown(Keys.D) && hero.position.X + 5 < graphics.GraphicsDevice.DisplayMode.Width - 100)
-                hero.position.X += 5;
+                hero.position.X += 3;
             if (Keyboard.GetState().IsKeyDown(Keys.W) && hero.position.Y - 5 > 200)
-                hero.position.Y -= 5;
+                hero.position.Y -= 3;
             if (Keyboard.GetState().IsKeyDown(Keys.S) && hero.position.Y + 5 < graphics.GraphicsDevice.DisplayMode.Height - 100)
-                hero.position.Y += 5;
+                hero.position.Y += 3;
 
-            
+
         }
         public void UpdateEnnemi()
         {
-            if (ennemi.position.X < graphics.GraphicsDevice.DisplayMode.Width)
-                ennemi.position.X += 5;
+            if (enemytime == 0)
+            {
+                enemytime = 121;
+                direction = random.Next(1, 101);
+                if (direction <= 50)
+                    ennemi.vitesse.X = 4;
+                else
+                    ennemi.vitesse.X = -4;
+            }
+            if (ennemi.position.X <= graphics.GraphicsDevice.DisplayMode.Width - 150 && ennemi.position.X >= -150)
+                ennemi.position.X += ennemi.vitesse.X;
+            else if (ennemi.position.X > graphics.GraphicsDevice.DisplayMode.Width - 150)
+                ennemi.position.X = -150;
             else
-                ennemi.position.X = -300;
+                ennemi.position.X = graphics.GraphicsDevice.DisplayMode.Width - 150;
+            enemytime -= 1;
         }
         public void UpdateProjectile()
         {
@@ -284,30 +298,25 @@ namespace Projet_Monogame
             }
             #endregion
             #region Projectile 3
-            if (time == 580)
+            if (time == 580 || projectile3.position.Y >= graphics.GraphicsDevice.DisplayMode.Height)
             {
                 projectile3.position.X = ennemi.position.X + 145;
                 projectile3.position.Y = ennemi.position.Y + 160;
+                if ((hero.position.X - (ennemi.position.X + 150)) / (hero.position.Y - (ennemi.position.Y + 150)) > 0)
+                    projectile3.vitesse.X = (float)Math.Sqrt(36 * (hero.position.X - (ennemi.position.X + 150)) / (hero.position.Y - (ennemi.position.Y + 150)));
+                else
+                    projectile3.vitesse.X = (float)-Math.Sqrt(-36 * (hero.position.X - (ennemi.position.X + 150)) / (hero.position.Y - (ennemi.position.Y + 150)));
+                if ((hero.position.X - (ennemi.position.X + 150)) / (hero.position.Y - (ennemi.position.Y + 150)) > 0)
+
+                    projectile3.vitesse.Y = (float)Math.Sqrt(36 - Math.Pow(projectile3.vitesse.Y, 2));
+                else
+                    projectile3.vitesse.Y = (float)Math.Sqrt(36 - Math.Pow(projectile3.vitesse.Y, 2));
             }
             if (time > 580)
             {
-                if (projectile3.position.Y < graphics.GraphicsDevice.DisplayMode.Height)
-                {
-                    projectile3.position.X += projectile3.vitesse.X;
-                    projectile3.position.Y += projectile3.vitesse.Y;
-                }
-                else
-                {
-                    projectile3.position.X = ennemi.position.X + 150;
-                    projectile3.position.Y = ennemi.position.Y + 160;
-                    projectile3.vitesse.Y += 1;
-                    if (projectile3.vitesse.Y == 10)
-                    {
-                        projectile3.vitesse.X += 5;
-                        projectile3.vitesse.Y = 1;
-                    }
+                projectile3.position.X += projectile3.vitesse.X;
+                projectile3.position.Y += projectile3.vitesse.Y;
 
-                }
                 if (projectile3.position.X > graphics.GraphicsDevice.DisplayMode.Width)
                 {
                     projectile3.position.X = -50;
@@ -405,46 +414,23 @@ namespace Projet_Monogame
             {
                 roundprojectile.position.X = ennemi.position.X + 145;
                 roundprojectile.position.Y = ennemi.position.Y + 160;
-                if (hero.position.X > (ennemi.position.X + 145))
-                    roundprojectile.vitesse.X = 240;
-                else
-                    roundprojectile.vitesse.X = -240;
-
-                roundprojectile.vitesse.Y = 0;
+                roundprojectile.vitesse.X = (hero.position.X - (ennemi.position.X + 145)) / 60;
+                roundprojectile.vitesse.Y = (hero.position.Y - (ennemi.position.Y + 145)) / 60;
                 roundtime = 0;
             }
             if (time > 1000)
             {
-                if (roundtime < 180)
+                if (roundtime < 60)
                 {
-                    roundprojectile.position.X += roundprojectile.vitesse.X / 40;
-                    roundprojectile.position.Y += roundprojectile.vitesse.Y / 40;
+                    roundprojectile.position.X += roundprojectile.vitesse.X;
+                    roundprojectile.position.Y += roundprojectile.vitesse.Y;
                 }
-                else
-                {
-                    smallroundprojectileA.position.X += smallroundprojectileA.vitesse.X;
-                    smallroundprojectileA.position.Y += smallroundprojectileA.vitesse.Y;
-                    smallroundprojectileW.position.X += smallroundprojectileW.vitesse.X;
-                    smallroundprojectileW.position.Y += smallroundprojectileW.vitesse.Y;
-                    smallroundprojectileS.position.X += smallroundprojectileS.vitesse.X;
-                    smallroundprojectileS.position.Y += smallroundprojectileS.vitesse.Y;
-                    smallroundprojectileD.position.X += smallroundprojectileD.vitesse.X;
-                    smallroundprojectileD.position.Y += smallroundprojectileD.vitesse.Y;
-                }
-                if (roundtime <= 120)
-                {
-                    if (roundprojectile.vitesse.X > 0)
-                        roundprojectile.vitesse.X = 240 - (roundtime * 2);
-                    if (roundprojectile.vitesse.X < 0)
-                        roundprojectile.vitesse.X = -240 + (roundtime * 2);
-                    roundprojectile.vitesse.Y = roundtime * 2;
-                }
-                else if (roundtime < 180)
+                else if (roundtime < 120)
                 {
                     roundprojectile.vitesse.X = 0;
                     roundprojectile.vitesse.Y = 0;
                 }
-                else if (roundtime == 180)
+                else if (roundtime == 120)
                 {
                     smallroundprojectileA.position.X = roundprojectile.position.X;
                     smallroundprojectileA.position.Y = roundprojectile.position.Y;
@@ -457,12 +443,28 @@ namespace Projet_Monogame
                     roundprojectile.position.X = -50;
                     roundprojectile.position.Y = -50;
                 }
-                else if (roundtime == 580)
+                else
+                {
+                    smallroundprojectileA.position.X += smallroundprojectileA.vitesse.X;
+                    smallroundprojectileA.position.Y += smallroundprojectileA.vitesse.Y;
+                    smallroundprojectileW.position.X += smallroundprojectileW.vitesse.X;
+                    smallroundprojectileW.position.Y += smallroundprojectileW.vitesse.Y;
+                    smallroundprojectileS.position.X += smallroundprojectileS.vitesse.X;
+                    smallroundprojectileS.position.Y += smallroundprojectileS.vitesse.Y;
+                    smallroundprojectileD.position.X += smallroundprojectileD.vitesse.X;
+                    smallroundprojectileD.position.Y += smallroundprojectileD.vitesse.Y;
+                }
+                if (roundtime == 480)
                     roundtime = -1;
                 roundtime += 1;
+                if (hero.GetRect().Intersects(roundprojectile.GetRect()) || hero.GetRect().Intersects(smallroundprojectileW.GetRect()) || hero.GetRect().Intersects(smallroundprojectileA.GetRect()) || hero.GetRect().Intersects(smallroundprojectileS.GetRect()) || hero.GetRect().Intersects(smallroundprojectileD.GetRect()))
+                {
+                    hero.estVivant = false;
+                    time = 0;
+                }
             }
-            #endregion
         }
+        #endregion
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -489,7 +491,7 @@ namespace Projet_Monogame
                     spriteBatch.Draw(sneakprojectile2.sprite, sneakprojectile2.position, Color.White);
                 if (time >= 1000)
                 {
-                    if (roundtime < 180)
+                    if (roundtime < 120)
                         spriteBatch.Draw(roundprojectile.sprite, roundprojectile.position, Color.White);
                     else
                     {
