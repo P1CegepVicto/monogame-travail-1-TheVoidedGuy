@@ -26,8 +26,6 @@ D:\Travaux\Session 1\Réseautique\Projet_Monogame\obj\x86\Debug\Projet_Monogame.
 D:\Travaux\Session 1\Réseautique\Projet_Monogame\bin\Windows\x86\Debug\Content\Héro.png
 D:\Travaux\Session 1\Réseautique\Projet_Monogame\bin\Windows\x86\Debug\Content\Ennemi.png
 D:\Travaux\Session 1\Réseautique\Projet_Monogame\bin\Windows\x86\Debug\Content\Projectile.png
-C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Ennemi.png
-C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Héro.png
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Projet_Monogame.exe
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Projet_Monogame.pdb
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -53,7 +51,9 @@ C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\obj\x86\Debug\Projet_Monogame.csprojResolveAssemblyReference.cache
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\obj\x86\Debug\Projet_Monogame.exe
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\obj\x86\Debug\Projet_Monogame.pdb
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Ennemi.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Héro.png
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Projectile.png
-C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Sneaky_Projectile.png
-C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Small_Round_Projectile.png
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Round_Projectile.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Small_Round_Projectile.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Sneaky_Projectile.png
