@@ -288,7 +288,7 @@ namespace Projet_Monogame
                     projectile.vitesse.Y *= 2;
                 }
             }
-            if (projectile.position.X >= graphics.GraphicsDevice.DisplayMode.Width || projectile.position.X <= 0)
+            if (projectile.position.X >= graphics.GraphicsDevice.DisplayMode.Width - 50 || projectile.position.X <= 0)
                 projectile.vitesse.X = -projectile.vitesse.X;
 
             projectile.position.X += projectile.vitesse.X;
@@ -319,7 +319,7 @@ namespace Projet_Monogame
                         projectile2.vitesse.Y *= 2;
                     }
                 }
-                if (projectile2.position.X >= graphics.GraphicsDevice.DisplayMode.Width || projectile2.position.X <= 0)
+                if (projectile2.position.X >= graphics.GraphicsDevice.DisplayMode.Width - 50 || projectile2.position.X <= 0)
                     projectile2.vitesse.X = -projectile2.vitesse.X;
 
                 projectile2.position.X += projectile2.vitesse.X;
@@ -351,7 +351,7 @@ namespace Projet_Monogame
                         projectile3.vitesse.Y *= 2;
                     }
                 }
-                if (projectile3.position.X >= graphics.GraphicsDevice.DisplayMode.Width || projectile3.position.X <= 0)
+                if (projectile3.position.X >= graphics.GraphicsDevice.DisplayMode.Width - 50 || projectile3.position.X <= 0)
                     projectile3.vitesse.X = -projectile3.vitesse.X;
 
                 projectile3.position.X += projectile3.vitesse.X;
