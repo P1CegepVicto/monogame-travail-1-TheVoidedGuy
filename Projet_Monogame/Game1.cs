@@ -14,6 +14,7 @@ namespace Projet_Monogame
         SpriteBatch spriteBatch;
         GameObject hero;
         GameObject ennemi;
+        GameObject background;
         #region Normal Projectile
         GameObject projectile;
         GameObject projectile2;
@@ -85,6 +86,10 @@ namespace Projet_Monogame
             ennemi.position.X = 750;
             ennemi.position.Y = 10;
             ennemi.sprite = Content.Load<Texture2D>("Ennemi.png");
+            background = new GameObject();
+            background.position.X = 0;
+            background.position.Y = 0;
+            background.sprite = Content.Load<Texture2D>("Background.png");
             #region Projectile 1
             projectile = new GameObject();
             projectile.position.X = ennemi.position.X + 145;
@@ -212,7 +217,9 @@ namespace Projet_Monogame
                 Exit();
             if (hero.estVivant == false && time == 120)
                 Exit();
-            if (hero.estVivant == true)
+            if (time > 6120)
+                Exit();
+            if (hero.estVivant == true && time < 6000)
             {
                 if (Keyboard.GetState().IsKeyDown(Keys.A) && hero.position.X - 5 > 0)
                     hero.position.X -= 5;
@@ -227,6 +234,7 @@ namespace Projet_Monogame
                 UpdateEnnemi();
                 UpdateProjectile();
             }
+            
             time += 1;
             // TODO: Add your update logic here
 
@@ -274,7 +282,7 @@ namespace Projet_Monogame
                 projectile.position.Y = ennemi.position.Y + 200;
                 projectile.vitesse.X = random.Next(-7, 8);
                 projectile.vitesse.Y = random.Next(3, 6);
-                if (time >4500)
+                if (time > 4500)
                 {
                     projectile.vitesse.X *= 2;
                     projectile.vitesse.Y *= 2;
@@ -328,8 +336,8 @@ namespace Projet_Monogame
             {
                 if (time == 500)
                 {
-                    projectile2.position.X = ennemi.position.X + 145;
-                    projectile2.position.Y = ennemi.position.Y + 200;
+                    projectile3.position.X = ennemi.position.X + 145;
+                    projectile3.position.Y = ennemi.position.Y + 200;
                 }
                 if (projectile3.position.Y >= graphics.GraphicsDevice.DisplayMode.Height)
                 {
@@ -371,6 +379,9 @@ namespace Projet_Monogame
                     sneakprojectile.vitesse.Y = 0;
                 }
 
+                if (sneakprojectile.GetRect().Intersects(sneakprojectile2.GetRect()))
+                    sneakprojectile.vitesse.X += 100;
+
                 sneakprojectile.position.X += (sneakprojectile.vitesse.X / 40);
                 sneakprojectile.position.Y += (sneakprojectile.vitesse.Y / 40);
 
@@ -391,30 +402,30 @@ namespace Projet_Monogame
                     if (sneakprojectile.position.Y < hero.position.Y + 50)
                     {
                         if (sneakprojectile.vitesse.Y > 0)
-                            sneakprojectile.vitesse.Y += 1;
+                            sneakprojectile.vitesse.Y += 2;
                         else
-                            sneakprojectile.vitesse.Y += 15;
+                            sneakprojectile.vitesse.Y += 5;
                     }
                     if (sneakprojectile.position.Y > hero.position.Y + 50)
                     {
                         if (sneakprojectile.vitesse.Y < 0)
-                            sneakprojectile.vitesse.Y -= 1;
+                            sneakprojectile.vitesse.Y -= 2;
                         else
-                            sneakprojectile.vitesse.Y -= 15;
+                            sneakprojectile.vitesse.Y -= 5;
                     }
                     if (sneakprojectile.position.X < hero.position.X + 50)
                     {
                         if (sneakprojectile.vitesse.X < 0)
-                            sneakprojectile.vitesse.X += 15;
+                            sneakprojectile.vitesse.X += 5;
                         else
-                            sneakprojectile.vitesse.X += 1;
+                            sneakprojectile.vitesse.X += 2;
                     }
                     if (sneakprojectile.position.X > hero.position.X + 50)
                     {
                         if (sneakprojectile.vitesse.X > 0)
-                            sneakprojectile.vitesse.X -= 15;
+                            sneakprojectile.vitesse.X -= 5;
                         else
-                            sneakprojectile.vitesse.X -= 1;
+                            sneakprojectile.vitesse.X -= 2;
                     }
                 }
                 #endregion
@@ -446,14 +457,48 @@ namespace Projet_Monogame
                 sneakprojectile2.position.Y += (sneakprojectile2.vitesse.Y / 40);
 
                 #region Momentum
-                if (sneakprojectile2.position.Y < hero.position.Y + 50)
-                    sneakprojectile2.vitesse.Y += 1;
-                if (sneakprojectile2.position.Y > hero.position.Y + 50)
-                    sneakprojectile2.vitesse.Y -= 1;
-                if (sneakprojectile2.position.X < hero.position.X + 50)
-                    sneakprojectile2.vitesse.X += 1;
-                if (sneakprojectile2.position.X > hero.position.X + 50)
-                    sneakprojectile2.vitesse.X -= 1;
+                if (time < 4500)
+                {
+                    if (sneakprojectile2.position.Y < hero.position.Y + 50)
+                        sneakprojectile2.vitesse.Y += 1;
+                    if (sneakprojectile2.position.Y > hero.position.Y + 50)
+                        sneakprojectile2.vitesse.Y -= 1;
+                    if (sneakprojectile2.position.X < hero.position.X + 50)
+                        sneakprojectile2.vitesse.X += 1;
+                    if (sneakprojectile2.position.X > hero.position.X + 50)
+                        sneakprojectile2.vitesse.X -= 1;
+                }
+                else
+                {
+                    if (sneakprojectile2.position.Y < hero.position.Y + 50)
+                    {
+                        if (sneakprojectile2.vitesse.Y > 0)
+                            sneakprojectile2.vitesse.Y += 2;
+                        else
+                            sneakprojectile2.vitesse.Y += 5;
+                    }
+                    if (sneakprojectile2.position.Y > hero.position.Y + 50)
+                    {
+                        if (sneakprojectile2.vitesse.Y < 0)
+                            sneakprojectile2.vitesse.Y -= 2;
+                        else
+                            sneakprojectile2.vitesse.Y -= 5;
+                    }
+                    if (sneakprojectile2.position.X < hero.position.X + 50)
+                    {
+                        if (sneakprojectile2.vitesse.X < 0)
+                            sneakprojectile2.vitesse.X += 5;
+                        else
+                            sneakprojectile2.vitesse.X += 2;
+                    }
+                    if (sneakprojectile2.position.X > hero.position.X + 50)
+                    {
+                        if (sneakprojectile2.vitesse.X > 0)
+                            sneakprojectile2.vitesse.X -= 5;
+                        else
+                            sneakprojectile2.vitesse.X -= 2;
+                    }
+                }
                 #endregion
 
                 if (hero.GetRect().Intersects(sneakprojectile2.GetRect()))
@@ -590,18 +635,19 @@ namespace Projet_Monogame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.Clear(Color.Black);
             if (hero.estVivant == true)
             {
-                if (time < 1500)
-                    GraphicsDevice.Clear(Color.SkyBlue);
-                else if (time < 3000)
-                    GraphicsDevice.Clear(Color.PaleTurquoise);
-                else if (time < 4500)
-                    GraphicsDevice.Clear(Color.Orange);
-                else if (time < 6000)
-                    GraphicsDevice.Clear(Color.OrangeRed);
-
                 spriteBatch.Begin();
+
+                if (time < 1500)
+                    spriteBatch.Draw(background.sprite, background.position, Color.Turquoise);
+                else if (time < 3000)
+                    spriteBatch.Draw(background.sprite, background.position, Color.White);
+                else if (time < 4500)
+                    spriteBatch.Draw(background.sprite, background.position, Color.DarkGray);
+                else if (time < 6000)
+                    spriteBatch.Draw(background.sprite, background.position, Color.Gray);
 
                 spriteBatch.Draw(hero.sprite, hero.position, Color.White);
                 spriteBatch.Draw(ennemi.sprite, ennemi.position, Color.White);
@@ -609,14 +655,24 @@ namespace Projet_Monogame
                 if (time > 180)
                     spriteBatch.Draw(projectile2.sprite, projectile2.position, Color.White);
                 if (time > 450)
-                    spriteBatch.Draw(sneakprojectile.sprite, sneakprojectile.position, Color.White);
+                {
+                    if (time < 4500)
+                        spriteBatch.Draw(sneakprojectile.sprite, sneakprojectile.position, Color.White);
+                    else
+                        spriteBatch.Draw(sneakprojectile.sprite, sneakprojectile.position, Color.Red);
+                } 
                 if (time > 500)
                     spriteBatch.Draw(projectile3.sprite, projectile3.position, Color.White);
                 if (time > 600)
-                    spriteBatch.Draw(sneakprojectile2.sprite, sneakprojectile2.position, Color.White);
+                {
+                    if (time < 4500)
+                        spriteBatch.Draw(sneakprojectile2.sprite, sneakprojectile2.position, Color.White);
+                    else
+                        spriteBatch.Draw(sneakprojectile2.sprite, sneakprojectile2.position, Color.Red);
+                }
                 if (time > 1000)
                 {
-                    if (roundtime < 120)
+                    if (roundtime <= 120)
                         spriteBatch.Draw(roundprojectile.sprite, roundprojectile.position, Color.White);
                     else
                     {
@@ -628,7 +684,7 @@ namespace Projet_Monogame
                 }
                 if (time > 1500)
                 {
-                    if (roundtime2 < 120)
+                    if (roundtime2 <= 120)
                         spriteBatch.Draw(roundprojectile2.sprite, roundprojectile2.position, Color.White);
                     else
                     {
@@ -642,6 +698,9 @@ namespace Projet_Monogame
             }
             else
                 GraphicsDevice.Clear(Color.Red);
+
+            if (time > 6000)
+                GraphicsDevice.Clear(Color.Green);
 
 
             // TODO: Add your drawing code here

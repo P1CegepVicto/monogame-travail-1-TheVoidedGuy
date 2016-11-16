@@ -57,3 +57,4 @@ C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Round_Projectile.png
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Small_Round_Projectile.png
 C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Sneaky_Projectile.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Projet_Monogame\bin\Windows\x86\Debug\Content\Background.png
