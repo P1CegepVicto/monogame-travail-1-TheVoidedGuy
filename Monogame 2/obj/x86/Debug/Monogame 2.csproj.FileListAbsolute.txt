@@ -29,3 +29,34 @@ D:\Travaux\Session 1\Programmation\Monogame 2\obj\x86\Debug\Monogame 2.exe
 D:\Travaux\Session 1\Programmation\Monogame 2\obj\x86\Debug\Monogame 2.pdb
 D:\Travaux\Session 1\Programmation\Monogame 2\bin\Windows\x86\Debug\Content\Mine_1.png
 D:\Travaux\Session 1\Programmation\Monogame 2\bin\Windows\x86\Debug\Content\Detection_Range.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\obj\x86\Debug\Monogame 2.exe
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\obj\x86\Debug\Monogame 2.pdb
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Content\Background.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Content\Detection_Range.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Content\Mine_1.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Content\Mine_2.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Content\Mine_3.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Content\Small_Round_Projectile.png
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Monogame 2.exe
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\Monogame 2.pdb
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\Monogame 2\obj\x86\Debug\Monogame 2.csprojResolveAssemblyReference.cache

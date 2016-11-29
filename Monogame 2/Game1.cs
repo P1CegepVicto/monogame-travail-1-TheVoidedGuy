@@ -18,7 +18,7 @@ namespace Monogame_2
         GameObject detection;
         GameObject background;
         GameObject background2;
-        int nbreEnnemi = 1;
+        int nbreEnnemi = 5;
         int time;
         int luck;
         int kill = 0;
@@ -43,7 +43,6 @@ namespace Monogame_2
             this.graphics.ToggleFullScreen();
             //fenetre = new Rectangle(0, 0, graphics.GraphicsDevice.DisplayMode.Width, graphics.GraphicsDevice.DisplayMode.Height);
             base.Initialize();
-
         }
 
         /// <summary>
@@ -71,20 +70,11 @@ namespace Monogame_2
             background2.position.X = background.position.X + 1920;
             background2.position.Y = 0;
             background2.sprite = Content.Load<Texture2D>("Background.png");
-            ennemi = new GameObject[20];
-            for (int t = 0; t < 20; t++)
+            ennemi = new GameObject[30];
+            for (int t = 0; t < 30; t++)
             {
                 ennemi[t] = new GameObject();
                 ennemi[t].estVivant = false;
-                ennemi[t].position.Y = random.Next(0, graphics.GraphicsDevice.DisplayMode.Height - 82);
-                if (ennemi[t].position.Y < detection.position.Y - 82 && ennemi[t].position.Y < detection.position.Y + 300)
-                    ennemi[t].position.X = random.Next(0, graphics.GraphicsDevice.DisplayMode.Width - 74);
-                else
-                {
-                    ennemi[t].position.X = random.Next(0, graphics.GraphicsDevice.DisplayMode.Width - 374);
-                    if (ennemi[t].position.X > detection.position.X - 74)
-                        ennemi[t].position.X += 374;
-                }
                 ennemi[t].vitesse.X = random.Next(-1, 2);
                 ennemi[t].vitesse.Y = random.Next(-1, 2);
                 ennemi[t].Time = 0;
@@ -128,27 +118,6 @@ namespace Monogame_2
                 Exit();
             if (hero.estVivant == true)
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.A) && hero.position.X - 5 > 0)
-                {
-                    hero.position.X -= 2;
-                    detection.position.X -= 2;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.D) && hero.position.X + 5 < graphics.GraphicsDevice.DisplayMode.Width - 100)
-                {
-                    hero.position.X += 2;
-                    detection.position.X += 2;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.W) && hero.position.Y - 5 > 0)
-                {
-                    hero.position.Y -= 2;
-                    detection.position.Y -= 2;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.S) && hero.position.Y + 5 < graphics.GraphicsDevice.DisplayMode.Height - 100)
-                {
-                    hero.position.Y += 2;
-                    detection.position.Y += 2;
-                }
-
                 UpdateHero();
                 UpdateEnnemi();
                 UpdateProjectile();
@@ -186,8 +155,8 @@ namespace Monogame_2
         }
         public void UpdateEnnemi()
         {
-            if (kill < 20)
-                nbreEnnemi = kill + 1;
+            if (kill < 25)
+                nbreEnnemi = kill + 5;
             for (int t = 0; t < nbreEnnemi; t++)
             {
                 if (detection.GetRect().Intersects(ennemi[t].GetRect()))
@@ -195,7 +164,7 @@ namespace Monogame_2
                 else
                     ennemi[t].visible = false;
 
-                if (hero.GetRect().Intersects(ennemi[t].GetRect()))
+                if (hero.GetRect().Intersects(ennemi[t].GetRect()) && ennemi[t].estVivant == true)
                 {
                     hero.estVivant = false;
                     time = 0;
@@ -203,6 +172,7 @@ namespace Monogame_2
                 if (ennemi[t].estVivant == false && ennemi[t].Time == 0)
                 {
                     ennemi[t].estVivant = true;
+                    ennemi[t].visible = false;
                     ennemi[t].position.Y = random.Next(0, graphics.GraphicsDevice.DisplayMode.Height - 82);
                     if (ennemi[t].position.Y < detection.position.Y && ennemi[t].position.Y > detection.position.Y + 300)
                         ennemi[t].position.X = random.Next(0, graphics.GraphicsDevice.DisplayMode.Width - 74);
@@ -214,15 +184,15 @@ namespace Monogame_2
                     }
                 }
                 ennemi[t].position.X += ennemi[t].vitesse.X;
-                if (ennemi[t].position.X < 0)
-                    ennemi[t].position.X = graphics.GraphicsDevice.DisplayMode.Width - 74;
-                else if (ennemi[t].position.X > graphics.GraphicsDevice.DisplayMode.Width - 74)
-                    ennemi[t].position.X = 0;
+                if (ennemi[t].position.X < -74)
+                    ennemi[t].position.X = graphics.GraphicsDevice.DisplayMode.Width;
+                else if (ennemi[t].position.X > graphics.GraphicsDevice.DisplayMode.Width)
+                    ennemi[t].position.X = -74;
                 ennemi[t].position.Y += ennemi[t].vitesse.Y;
-                if (ennemi[t].position.Y < 0)
-                    ennemi[t].position.Y = graphics.GraphicsDevice.DisplayMode.Height - 82;
-                else if (ennemi[t].position.Y > graphics.GraphicsDevice.DisplayMode.Height - 82)
-                    ennemi[t].position.Y = 0;
+                if (ennemi[t].position.Y < -82)
+                    ennemi[t].position.Y = graphics.GraphicsDevice.DisplayMode.Height;
+                else if (ennemi[t].position.Y > graphics.GraphicsDevice.DisplayMode.Height)
+                    ennemi[t].position.Y = -82;
 
                 for (int i = 0; i < 5; i++)
                 {
@@ -232,18 +202,6 @@ namespace Monogame_2
                         projectile[i].estVivant = false;
                         ennemi[t].estVivant = false;
                         ennemi[t].Time = 60;
-                        ennemi[t].position.Y = random.Next(0, graphics.GraphicsDevice.DisplayMode.Height - 82);
-                        if (ennemi[t].position.Y < detection.position.Y && ennemi[t].position.Y > detection.position.Y + 300)
-                            ennemi[t].position.X = random.Next(0, graphics.GraphicsDevice.DisplayMode.Width - 74);
-                        else
-                        {
-                            ennemi[t].position.X = random.Next(0, graphics.GraphicsDevice.DisplayMode.Width - 374);
-                            if (ennemi[t].position.X > detection.position.X)
-                                ennemi[t].position.X += 374;
-                        }
-                        ennemi[t].vitesse.X = random.Next(-1 * (time / 600), 1 * (time / 600) + 1);
-                        ennemi[t].vitesse.Y = random.Next(-1 * (time / 600), 1 * (time / 600) + 1);
-                        ennemi[t].visible = false;
                     }
                 }
                 if (ennemi[t].Time > 0)

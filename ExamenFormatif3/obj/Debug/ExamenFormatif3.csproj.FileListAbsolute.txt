@@ -1,0 +1,6 @@
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\ExamenFormatif3\bin\Debug\ExamenFormatif3.exe.config
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\ExamenFormatif3\obj\Debug\ExamenFormatif3.csprojResolveAssemblyReference.cache
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\ExamenFormatif3\bin\Debug\ExamenFormatif3.exe
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\ExamenFormatif3\bin\Debug\ExamenFormatif3.pdb
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\ExamenFormatif3\obj\Debug\ExamenFormatif3.exe
+C:\Users\TheVo\OneDrive\Documents\GitHub\monogame-travail-1-TheVoidedGuy\ExamenFormatif3\obj\Debug\ExamenFormatif3.pdb
